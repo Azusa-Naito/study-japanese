@@ -90,7 +90,7 @@ Things you may want to cover:
 ## posts テーブル
 | Column    | Type       | Options           |
 | --------- | ---------- | ----------------- |
-| movie     |            | null: false       |
+| movie     | string     | null: false       |
 | title     | string     | null: false       |
 | text      | text       | null: false       |
 | teacher   | references | foreign_key: true |
