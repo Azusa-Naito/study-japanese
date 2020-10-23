@@ -1,0 +1,9 @@
+<h1>Tweets#index</h1>
+
+<% if student_signed_in? %>
+  <p><%= link_to "学生ログアウト", destroy_student_session_path, method: :delete, class: "logout" %></p>
+<% elsif teacher_signed_in? %>
+  <p><%= link_to "講師ログアウト", destroy_teacher_session_path, method: :delete, class: "logout" %></p>
+<% else %>
+  <p>こんにちは ゲストさん</p>
+<% end %>
