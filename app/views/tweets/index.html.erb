@@ -7,3 +7,11 @@
 <% else %>
   <p>こんにちは ゲストさん</p>
 <% end %>
+<%= link_to "つぶやく", new_tweet_path %>
+
+<% @tweets.each do |tweet| %>
+  <div class="tweet">
+  <%= tweet.created_at %>
+  <%= tweet.text %>
+  </div>
+<% end %>

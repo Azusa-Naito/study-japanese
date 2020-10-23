@@ -1,0 +1,14 @@
+<h1>Tweets#new</h1>
+
+<%= form_with model: @tweet, url: tweets_path, class: 'tweet_create', local: true do |f| %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">テキスト(text)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :text, class:"input-default", id:"text", placeholder:" ", maxlength:"200" %>
+  </div>
+  <div class='tweets-btn'>
+    <%= f.submit "submit" ,class:"tweet-btn" %>
+  </div>
+<% end %>
