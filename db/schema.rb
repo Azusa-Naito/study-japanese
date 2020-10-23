@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_013503) do
+ActiveRecord::Schema.define(version: 2020_10_23_015728) do
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -46,4 +46,16 @@ ActiveRecord::Schema.define(version: 2020_10_22_013503) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "text", null: false
+    t.bigint "student_id"
+    t.bigint "teacher_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_tweets_on_student_id"
+    t.index ["teacher_id"], name: "index_tweets_on_teacher_id"
+  end
+
+  add_foreign_key "tweets", "students"
+  add_foreign_key "tweets", "teachers"
 end
