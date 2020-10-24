@@ -42,8 +42,8 @@ class PostUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # 保存したファイル名を生成してくれる
-  def filename
+  # def filename
     # "something.jpg" if original_filename
-    super.chomp(File.extname(super)) if original_filename.present?
-  end
+    # super.chomp(File.extname(super)) if original_filename.present?
+  # end
 end
