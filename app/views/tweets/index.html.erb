@@ -1,5 +1,7 @@
 <h1>Tweets#index</h1>
 
+<p><%= link_to "動画で勉強！", posts_path %></p>
+
 <% if student_signed_in? %>
   <p><%= link_to "学生ログアウト", destroy_student_session_path, method: :delete, class: "logout" %></p>
 <% elsif teacher_signed_in? %>
