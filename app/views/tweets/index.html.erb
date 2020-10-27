@@ -17,8 +17,10 @@
 <%= link_to "つぶやく", new_tweet_path %>
 
 <% @tweets.each do |tweet| %>
-  <div class="tweet">
-  <%= tweet.created_at %>
-  <%= tweet.text %>
-  </div>
+  <%= link_to tweet_path(tweet.id) do %>
+    <div class="tweet">
+    <%= tweet.created_at %>
+    <%= tweet.text %>
+    </div>
+  <% end %>
 <% end %>

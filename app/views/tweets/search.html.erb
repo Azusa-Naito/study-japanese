@@ -4,7 +4,9 @@
 <% end %>
 
 <% @tweets.each do |tweet| %>
-  <div class="tweet">
-    <p><%= tweet.text %></p>
-  </div>
+  <%= link_to tweet_path(tweet.id) do %>
+    <div class="tweet">
+      <p><%= tweet.text %></p>
+    </div>
+  <% end %>
 <% end %>

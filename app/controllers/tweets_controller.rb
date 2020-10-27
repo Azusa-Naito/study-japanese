@@ -13,6 +13,10 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   def search
     @tweets = Tweet.search(params[:keyword])
 
