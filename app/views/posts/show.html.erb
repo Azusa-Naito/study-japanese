@@ -1,0 +1,5 @@
+<h1>Posts#show</h1>
+<%#レビュー10けんたまって評価がよかったらお金取るシステム？%>
+<%#= video_tag(@post.movie, size: "500x300", autoplay: true)%>
+<%# muted(ミュート)をtrueにしないと動画が再生されない %>
+<%= video_tag @post.movie, size: "800x450", autoplay: true, muted: true %>
