@@ -1,0 +1,31 @@
+<h1>Posts#new</h1>
+
+<%= form_with model: @post, url: posts_path, class: 'post_create', local: true do |f| %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">動画(movie)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="field">
+      <%= f.label :movie, name: 'post[movie]', id: 'item-image' %>
+      <%= f.file_field :movie %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">タイトル(title)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :title, class:"input-default", id:"text", placeholder:" ", maxlength:"30" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">テキスト(text)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :text, class:"input-default", id:"text", placeholder:" ", maxlength:"1000" %>
+  </div>
+  <div class='tweets-btn'>
+    <%= f.submit "submit" ,class:"tweet-btn" %>
+  </div>
+<% end %>

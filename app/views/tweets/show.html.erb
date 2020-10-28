@@ -1,0 +1,33 @@
+<div class="tweet">
+  <p><%= @tweet.text %></p>
+</div>
+
+<%= form_with(model: [@tweet, @comment], local: true) do |form| %>
+  <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+  <%= form.submit "SEND" %>
+<% end %>
+
+<div id='comments'>
+  <% @comments.each do |comment| %>
+    <div class='comment-display'>
+      <div class='comment-top'>
+        <% if comment.student_id.present? %>
+          <div>
+            <%= comment.student.nickname %>
+          </div>
+        <% elsif comment.teacher_id.present? %>
+          <div>
+            teacher:
+            <%= comment.teacher.nickname %>
+          </div>
+        <% else %>
+          <div><%= ゲスト %></div>
+        <% end %>
+        <div><%= comment.created_at %></div>
+      </div>
+      <div class='comment-bottom'>
+        <p><%= comment.text %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

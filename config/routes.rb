@@ -21,5 +21,16 @@ Rails.application.routes.draw do
 
   root to: "tops#index"
   resources :tops, only: [:index]
-  resources :tweets, only: [:index, :new, :create]
+  resources :tweets, only: [:index, :new, :create, :show] do
+    resources :comments, only: [:create]
+    collection do
+      get 'search'
+    end
+  end
+  resources :posts, only: [:index, :new, :create, :show] do
+    collection do
+      get 'search'
+    end
+  end
+
 end

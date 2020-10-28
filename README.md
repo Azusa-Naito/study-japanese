@@ -94,7 +94,6 @@ Things you may want to cover:
 | title     | string     | null: false       |
 | text      | text       | null: false       |
 | teacher   | references | foreign_key: true |
-| student   | references | foreign_key: true |
 
 ### Association
 

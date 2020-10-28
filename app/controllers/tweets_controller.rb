@@ -13,10 +13,26 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+    @comments = @tweet.comments.order('created_at DESC')
+    @comment = Comment.new
+  end
+
+  def search
+    @tweets = Tweet.search(params[:keyword])
+
+  end
+
   private
 
   def tweet_params
-    params.require(:tweet).permit(:text)
-    #.merge(student_id: current_student.id, teacher_id: current_teacher.id)
+    if student_signed_in?
+      params.require(:tweet).permit(:text).merge(student_id: current_student.id)
+    elsif teacher_signed_in?
+      params.require(:tweet).permit(:text).merge(teacher_id: current_teacher.id)
+    else
+      params.require(:tweet).permit(:text)
+    end
   end
 end
