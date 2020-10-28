@@ -1,6 +1,7 @@
 class Tweet < ApplicationRecord
-  belongs_to :teacher
-  belongs_to :student
+  belongs_to :teacher, required: false
+  belongs_to :student, required: false
+  has_many :comments
 
   def self.search(search)
     if search != ""
