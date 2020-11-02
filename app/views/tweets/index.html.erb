@@ -19,7 +19,7 @@
 <% @tweets.each do |tweet| %>
   <%= link_to tweet_path(tweet.id) do %>
     <div class="tweet">
-    <%= tweet.created_at %>
+    <%= l tweet.created_at %>
     <%= tweet.text %>
     </div>
   <% end %>

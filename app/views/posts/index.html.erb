@@ -16,9 +16,7 @@
     <div class="post">
       <b><p><%= post.title %></p></b>
       <p><%= post.text %></p>
-      <%#= post.created_at %>
-      <%#= image_tag post.movie %>
-      <%#= video_tag post.movie, autoplay: true %>
+      <p><%= l post.created_at %></p>
       <%= video_tag(post.movie, size: "500x300", autoplay: true, muted: true)%>
     </div>
   <% end %>
