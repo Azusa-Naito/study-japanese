@@ -12,6 +12,7 @@
 <% end %>
 
 <% @posts.each do |post| %>
+  <%= link_to post.teacher.nickname, teacher_path(post.teacher.id) %>
   <%= link_to post_path(post.id) do %>
     <div class="post">
       <b><p><%= post.title %></p></b>
