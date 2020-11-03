@@ -1,5 +1,45 @@
 <h1>Posts#show</h1>
-<%#レビュー10けんたまって評価がよかったらお金取るシステム？%>
-<%#= video_tag(@post.movie, size: "500x300", autoplay: true)%>
+
 <%# muted(ミュート)をtrueにしないと動画が再生されない %>
 <%= video_tag @post.movie, size: "800x450", autoplay: true, muted: true %>
+
+<p><%= link_to "レビューを書く", new_post_review_path(@post.id) %></p>
+
+<div class="option">
+  <div class="good-btn">
+    <%= image_tag "good.png" ,class:"good-icon" ,width:"20",height:"20"%>
+    <span>good</span>
+  </div>
+  <div class="bad-btn">
+    <%= image_tag "bad.png" ,class:"bad-icon" ,width:"20",height:"20"%>
+    <span>bad</span>
+  </div>
+</div>
+
+<%= link_to image_tag("twitter.png", class:"twitter-icon"), "https://twitter.com/share?url=#{request.url}", title: 'twitter', target: '_blank' %>
+
+<div id='reviews'>
+  <% @reviews.each do |review| %>
+    <div class='review-display'>
+      <div class='review-top'>
+        <% if review.student_id.present? %>
+          <div>
+            <%= review.student.nickname %>
+          </div>
+        <% elsif review.teacher_id.present? %>
+          <div>
+            teacher:
+            <%= review.teacher.nickname %>
+          </div>
+        <% else %>
+          <div><%= ゲスト %></div>
+        <% end %>
+        <div><%= l review.created_at %></div>
+      </div>
+      <div class='review-bottom'>
+        <p><%= review.difficult %></p>
+        <p><%= review.text %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
