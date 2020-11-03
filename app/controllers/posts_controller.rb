@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :redirect, except: [:index]
+
   def index
     @posts = Post.includes(:teacher).order("created_at DESC")
   end
@@ -16,6 +16,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @reviews = Review.where(post_id: @post.id)
+    # @reviews = @post.reviews.order('created_at DESC')
   end
 
   def search
