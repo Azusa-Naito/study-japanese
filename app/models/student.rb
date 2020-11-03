@@ -5,4 +5,5 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tweets
   has_many :comments
+  has_many :reviews
 end
