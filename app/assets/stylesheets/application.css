@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+/* 全体のbodyの設定 */
+body {	background-color:#EEFFFF;
+      /*ページ全体の背景色*/
+      font-size:95%;
+      /* フォントサイズを95%にする */
+      font-family: "Yu Gothic", YuGothic, sans-serif;	line-height:1.5;
+      /* 行の高さを1.5倍にする */	
+      color:#333333;
+      /* 文字色を濃い目のグレーにする */}
+/* 全体のbodyの設定 */
+
+a {
+  text-decoration: none;
+}
