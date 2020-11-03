@@ -1,0 +1,31 @@
+<!-- 口コミ入力フォーム -->
+<%= form_with model: @review, url: post_reviews_path do |f| %>
+
+  <!--エラーメッセージ-->
+  <%#= render 'layouts/error_messages', model: f.object %>
+
+  <!-- 分からなかったこと -->
+  <div class="form-group row">
+    <%= f.label :difficult, '分からなかったこと', class:'difficult' %>
+    <div class="difficult-form">
+      <%= f.text_area :text, class: "form-control", rows: "8", placeholder:'難しかったこと、分からなかったことを書きましょう' %>
+    </div>
+  </div>
+
+  <!-- 感想 -->
+  <div class="form-group row">
+    <%= f.label :text, '感想（かんそう）', class:'text' %>
+    <div class="text-form">
+      <%= f.text_area :text, class: "form-control", rows: "8", placeholder:'この動画（どうが）の感想（かんそう）を書きましょう' %>
+    </div>
+  </div>
+
+  <!-- 確認ボタン -->
+  <div class="form-group row justify-content-end">
+    <div class="col-md-9">
+      <%= f.submit '先生に送る', class:"btn btn-success" %>
+    </div>
+  </div>
+
+<% end %>
+<!-- /口コミ入力フォーム -->

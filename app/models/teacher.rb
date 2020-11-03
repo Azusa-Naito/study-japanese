@@ -6,4 +6,6 @@ class Teacher < ApplicationRecord
   has_many :tweets
   has_many :comments
   has_many :posts
+  has_many :reviews
+
 end

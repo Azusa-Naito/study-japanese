@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_061639) do
+ActiveRecord::Schema.define(version: 2020_10_28_084546) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 2020_10_27_061639) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["teacher_id"], name: "index_posts_on_teacher_id"
+  end
+
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "difficult"
+    t.text "text", null: false
+    t.bigint "teacher_id"
+    t.bigint "student_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_reviews_on_post_id"
+    t.index ["student_id"], name: "index_reviews_on_student_id"
+    t.index ["teacher_id"], name: "index_reviews_on_teacher_id"
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,6 +92,9 @@ ActiveRecord::Schema.define(version: 2020_10_27_061639) do
   end
 
   add_foreign_key "comments", "tweets"
+  add_foreign_key "reviews", "posts"
+  add_foreign_key "reviews", "students"
+  add_foreign_key "reviews", "teachers"
   add_foreign_key "tweets", "students"
   add_foreign_key "tweets", "teachers"
 end

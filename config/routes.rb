@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     end
   end
   resources :posts, only: [:index, :new, :create, :show] do
+    resources :reviews, only: [:new, :create]
     collection do
       get 'search'
     end
