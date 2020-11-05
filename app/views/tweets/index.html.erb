@@ -2,8 +2,15 @@
 
 <% if student_signed_in? %>
   <%= link_to current_student.nickname, student_path(current_student.id) %>
+  <%= link_to student_path(current_student.id) do %>
+  <%= image_tag current_student.image.url, class: "user-image" %>
+  <%= current_student.nickname %>
+  <% end %>
 <% elsif teacher_signed_in? %>
-  <%= link_to current_teacher.nickname, teacher_path(current_teacher.id) %>
+  <%= link_to teacher_path(current_teacher.id) do %>
+  <%= image_tag current_teacher.image.url, class: "user-image" %>
+  <%= current_teacher.nickname %>
+  <% end %>
 <% end %>
 
 <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>

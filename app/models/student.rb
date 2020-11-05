@@ -6,4 +6,5 @@ class Student < ApplicationRecord
   has_many :tweets
   has_many :comments
   has_many :reviews
+  mount_uploader :image, ImageUploader
 end
