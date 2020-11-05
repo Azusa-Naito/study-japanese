@@ -85,6 +85,15 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
     </div>
+    <%# 画像 %>
+    <div class='form-text-wrap'>
+      <label class="form-text">画像(picture)</label>
+    </div>
+    <div class="field">
+      <%= f.label :image, name: 'student[image]', id: 'student-image' %>
+      <%= f.file_field :image %>
+    </div>
+    <%# 画像 %>
 <%#----------------------性格その他検索で絞るデータ----------------------%>
     <%# <div class="form-group">
       <div class='form-text-wrap'>

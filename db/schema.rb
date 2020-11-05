@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_084546) do
+ActiveRecord::Schema.define(version: 2020_11_03_103200) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
@@ -59,8 +59,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_084546) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_students_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
+    t.string "image"
   end
 
   create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,8 +76,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_084546) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_teachers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
+    t.string "image"
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
