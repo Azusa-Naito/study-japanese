@@ -3,3 +3,12 @@
 <%= image_tag @student.image.url, class: "user-image" %>
 <p><%= @student.nickname %></p>
 <p><%= @student.birthday %></p>
+
+<% @tweets.each do |tweet| %>
+  <%= link_to tweet_path(tweet.id) do %>
+    <div class="tweet">
+    <%= l tweet.created_at %>
+    <%= tweet.text %>
+    </div>
+  <% end %>
+<% end %>

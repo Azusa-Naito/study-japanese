@@ -3,3 +3,23 @@
 <%= image_tag @teacher.image.url, class: "user-image" %>
 <p><%= @teacher.nickname %></p>
 <p><%= @teacher.birthday %></p>
+
+<% @tweets.each do |tweet| %>
+  <%= link_to tweet_path(tweet.id) do %>
+    <div class="tweet">
+    <%= l tweet.created_at %>
+    <%= tweet.text %>
+    </div>
+  <% end %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <%= link_to post_path(post.id) do %>
+    <div class="post">
+      <b><p><%= post.title %></p></b>
+      <p><%= post.text %></p>
+      <p><%= l post.created_at %></p>
+      <%= video_tag(post.movie, size: "500x300", autoplay: true, muted: true)%>
+    </div>
+  <% end %>
+<% end %>
